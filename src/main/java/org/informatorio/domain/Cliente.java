@@ -2,6 +2,7 @@ package org.informatorio.domain;
 
 import org.informatorio.constantes.Constantes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.informatorio.constantes.Constantes.SEPARADOR_TEMPLATE;
@@ -13,7 +14,7 @@ public class Cliente {
     private String apellidoCliente;
 
     private String direccionCliente;
-    private List<Cuenta> cuentas;
+    private List<Cuenta> cuentas = new ArrayList<>();
 
     private double saldoTotal;
 

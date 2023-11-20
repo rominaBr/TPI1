@@ -20,7 +20,7 @@ public class ArchivosServicioImpl implements ArchivosServicio{
         System.out.println("Exportando...");
         try(CSVWriter writer = new CSVWriter(new FileWriter(ruta))){
 
-            String[] encabezados = {"ID","Nombre","Apellido","Dirección","Saldo Cuenta","Tipo de Cuenta"};
+            String[] encabezados = {"ID","Nombre","Apellido","Dirección","Nro Cuenta","Saldo Cuenta","Tipo de Cuenta"};
             writer.writeNext(encabezados);
 
             List<Cliente> listaClientes = banco.getListaClientes();
@@ -36,6 +36,7 @@ public class ArchivosServicioImpl implements ArchivosServicio{
                                     cliente.getNombreCliente(),
                                     cliente.getApellidoCliente(),
                                     cliente.getDireccionCliente(),
+                                    String.valueOf(cuenta.getNroCuenta()),
                                     String.valueOf(cuenta.getSaldo()),
                                     String.valueOf(cuenta.tipoCuenta())
                             };
@@ -47,6 +48,7 @@ public class ArchivosServicioImpl implements ArchivosServicio{
                                 cliente.getNombreCliente(),
                                 cliente.getApellidoCliente(),
                                 cliente.getDireccionCliente(),
+                                "-",
                                 String.valueOf(cliente.getSaldoTotal()),
                                 "NO TIENE CUENTAS."
                         };

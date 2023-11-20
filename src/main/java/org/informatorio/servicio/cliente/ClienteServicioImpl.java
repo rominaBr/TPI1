@@ -15,11 +15,11 @@ public class ClienteServicioImpl implements ClienteServicio{
     }
 
     @Override
-    public void crearCliente(String nombre, String apellido, String direccion, Banco banco) {
+    public Cliente crearCliente(String nombre, String apellido, String direccion, Banco banco) {
         int id = bancoServicio.getCantidadClientes(banco)+1;
         Cliente cliente = new Cliente(id, nombre, apellido, direccion);
         bancoServicio.actualizarListaClientes(cliente, banco);
-        System.out.println(cliente.getIdCliente());
+        return cliente;
     }
 
     @Override
