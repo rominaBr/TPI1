@@ -1,0 +1,8 @@
+"ID","Nombre","Apellido","Dirección","Saldo Cuenta","Tipo de Cuenta"
+"1","Jorge","Sanchez","calle 1","10.0","AHORRO"
+"1","Jorge","Sanchez","calle 1","100.0","CORRIENTE"
+"2","Ana","Romero","av. laprida","10.0","CORRIENTE"
+"2","Ana","Romero","av. laprida","200.0","CORRIENTE"
+"3","Carlos","Gonzalez","calle 14","0.0","CORRIENTE"
+"3","Carlos","Gonzalez","calle 14","100.0","CORRIENTE"
+"3","Carlos","Gonzalez","calle 14","0.0","AHORRO"
