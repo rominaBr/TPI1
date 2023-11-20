@@ -18,5 +18,7 @@ public interface BancoServicio {
 
    void actualizarCuentaDeCliente(Cliente cliente, Cuenta cuenta);
 
+   List<Cliente> getListaClientesOrdenada(Banco banco);
+
 
 }

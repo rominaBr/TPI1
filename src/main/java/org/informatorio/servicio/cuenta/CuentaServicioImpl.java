@@ -25,6 +25,5 @@ public class CuentaServicioImpl implements CuentaServicio{
         System.out.println(SEPARADOR_TEMPLATE);
         System.out.println("Cuenta "+nuevaCuenta.tipoCuenta()+" creada correctamente.");
         System.out.println(SEPARADOR_TEMPLATE);
-
     }
 }

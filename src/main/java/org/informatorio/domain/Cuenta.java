@@ -43,6 +43,11 @@ public abstract class Cuenta {
 
     public abstract TipoDeCuenta tipoCuenta();
 
+    public abstract void dopositarDinero(double deposito);
+
+    public abstract void retirarDinero(double retiro);
+
+
     @Override
     public String toString() {
         return

@@ -30,7 +30,7 @@ public class App
                         new MenuCuentaServicioImpl(new MenuCuentaNuevaImpl(new CuentaServicioImpl()),
                         new MenuCuentaExistenteImpl())),
                 new MenuAltaClienteImpl()),
-                new MenuBancoServicioImpl(new ArchivosServicioImpl()), new Banco());
+                new MenuBancoServicioImpl(new ArchivosServicioImpl(), new BancoServicioImpl()), new Banco());
 
 
         menuPrincipal.iniciar();

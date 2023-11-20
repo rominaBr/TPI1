@@ -20,4 +20,15 @@ public class CuentaAhorro extends Cuenta{
     public TipoDeCuenta tipoCuenta() {
         return TipoDeCuenta.AHORRO;
     }
+
+    @Override
+    public void dopositarDinero(double deposito) {
+        setSaldo(deposito+getSaldo());
+        System.out.println(getSaldo());
+    }
+
+    @Override
+    public void retirarDinero(double retiro) {
+
+    }
 }

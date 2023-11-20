@@ -19,4 +19,14 @@ public class CuentaCorriente extends Cuenta{
     public TipoDeCuenta tipoCuenta() {
         return TipoDeCuenta.CORRIENTE;
     }
+
+    @Override
+    public void dopositarDinero(double deposito) {
+
+    }
+
+    @Override
+    public void retirarDinero(double retiro) {
+
+    }
 }

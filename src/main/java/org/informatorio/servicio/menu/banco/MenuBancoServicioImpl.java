@@ -3,15 +3,19 @@ package org.informatorio.servicio.menu.banco;
 import org.informatorio.domain.Banco;
 import org.informatorio.entrada.InputConsoleService;
 import org.informatorio.servicio.archivos.ArchivosServicio;
+import org.informatorio.servicio.banco.BancoServicio;
+import org.informatorio.servicio.banco.BancoServicioImpl;
 
 import static org.informatorio.constantes.Constantes.*;
 
 public class MenuBancoServicioImpl implements MenuBancoServicio{
 
     private ArchivosServicio archivosServicio;
+    private BancoServicio bancoServicio = new BancoServicioImpl();
 
-    public MenuBancoServicioImpl(ArchivosServicio archivosServicio) {
+    public MenuBancoServicioImpl(ArchivosServicio archivosServicio, BancoServicio bancoServicio) {
         this.archivosServicio = archivosServicio;
+        this.bancoServicio = bancoServicio;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class MenuBancoServicioImpl implements MenuBancoServicio{
                case 1:
                    System.out.println(SEPARADOR_TEMPLATE);
                    System.out.println("Listado de Clientes:");
-                   System.out.println(banco.getListaClientes());
+                   System.out.println(bancoServicio.getListaClientesOrdenada(banco));
                    System.out.println(SEPARADOR_TEMPLATE);
                    break;
                case 2:

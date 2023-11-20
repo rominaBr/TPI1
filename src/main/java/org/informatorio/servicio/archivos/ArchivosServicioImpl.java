@@ -4,6 +4,8 @@ import com.opencsv.CSVWriter;
 import org.informatorio.domain.Banco;
 import org.informatorio.domain.Cliente;
 import org.informatorio.domain.Cuenta;
+import org.informatorio.servicio.banco.BancoServicio;
+import org.informatorio.servicio.banco.BancoServicioImpl;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.util.List;
 public class ArchivosServicioImpl implements ArchivosServicio{
 
     private final String UBICACION_ARCHIVO = "\\src\\main\\java\\org\\informatorio\\recursos\\";
+
+    private BancoServicio bancoServicio = new BancoServicioImpl();
     @Override
     public void exportarClientesACsv(Banco banco, String nombreArchivo) {
 
@@ -23,8 +27,7 @@ public class ArchivosServicioImpl implements ArchivosServicio{
             String[] encabezados = {"ID","Nombre","Apellido","Dirección","Nro Cuenta","Saldo Cuenta","Tipo de Cuenta"};
             writer.writeNext(encabezados);
 
-            List<Cliente> listaClientes = banco.getListaClientes();
-
+            List<Cliente> listaClientes = bancoServicio.getListaClientesOrdenada(banco);
 
             if (!listaClientes.isEmpty()){
                 for (Cliente cliente: listaClientes) {
