@@ -41,7 +41,7 @@ public class MenuAltaClienteImpl implements MenuAltaCliente{
 
         menuCuentaNueva.iniciarMenuCuentaNueva(clienteNuevo,banco);
         System.out.println("Bienvenido: "+clienteNuevo.getApellidoCliente()+" "+clienteNuevo.getNombreCliente());
-        System.out.println("Su número único de cuenta es: "+clienteNuevo.getIdCliente());
+        System.out.println("Su número único de cliente es: "+clienteNuevo.getIdCliente());
 
         MenuCuentaServicio menuCuentaServicio = new MenuCuentaServicioImpl(new MenuCuentaNuevaImpl(new CuentaServicioImpl()));
 
