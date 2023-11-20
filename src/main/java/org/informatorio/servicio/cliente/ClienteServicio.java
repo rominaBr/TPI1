@@ -10,7 +10,6 @@ public interface ClienteServicio {
 
     Cliente crearCliente(String nombre, String apellido,String direccion, Banco banco);
     Optional<Cliente> consultarCliente(int nroCliente, Banco banco);
-
     Optional<Cuenta> consultarCuentaPorNro(int nroCuenta, Cliente cliente);
 
 }

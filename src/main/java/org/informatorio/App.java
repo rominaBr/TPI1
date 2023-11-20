@@ -11,6 +11,7 @@ import org.informatorio.servicio.menu.banco.MenuBancoServicioImpl;
 import org.informatorio.servicio.menu.cliente.MenuAltaClienteImpl;
 import org.informatorio.servicio.menu.cliente.MenuClienteImpl;
 import org.informatorio.servicio.menu.cliente.MenuIngresoClienteImpl;
+import org.informatorio.servicio.menu.cuenta.MenuCuentaExistenteImpl;
 import org.informatorio.servicio.menu.cuenta.MenuCuentaNuevaImpl;
 import org.informatorio.servicio.menu.cuenta.MenuCuentaServicioImpl;
 import org.informatorio.servicio.menu.principal.MenuPrincipal;
@@ -26,8 +27,10 @@ public class App
 
         MenuPrincipal menuPrincipal = new MenuPrincipalImpl(new MenuClienteImpl(
                 new MenuIngresoClienteImpl(new ClienteServicioImpl(new BancoServicioImpl()),
-                        new MenuCuentaServicioImpl(new MenuCuentaNuevaImpl(new CuentaServicioImpl()))),
-                new MenuAltaClienteImpl()), new MenuBancoServicioImpl(new ArchivosServicioImpl()), new Banco());
+                        new MenuCuentaServicioImpl(new MenuCuentaNuevaImpl(new CuentaServicioImpl()),
+                        new MenuCuentaExistenteImpl())),
+                new MenuAltaClienteImpl()),
+                new MenuBancoServicioImpl(new ArchivosServicioImpl()), new Banco());
 
 
         menuPrincipal.iniciar();

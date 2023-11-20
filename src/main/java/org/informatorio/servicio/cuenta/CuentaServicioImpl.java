@@ -1,6 +1,5 @@
 package org.informatorio.servicio.cuenta;
 
-import org.informatorio.constantes.Constantes;
 import org.informatorio.domain.*;
 import org.informatorio.enums.TipoDeCuenta;
 import org.informatorio.servicio.banco.BancoServicio;
@@ -24,7 +23,7 @@ public class CuentaServicioImpl implements CuentaServicio{
         }
         bancoServicio.actualizarCuentaDeCliente(cliente, nuevaCuenta);
         System.out.println(SEPARADOR_TEMPLATE);
-        System.out.println("Cuenta de "+nuevaCuenta.tipoCuenta()+" creada correctamente.");
+        System.out.println("Cuenta "+nuevaCuenta.tipoCuenta()+" creada correctamente.");
         System.out.println(SEPARADOR_TEMPLATE);
 
     }

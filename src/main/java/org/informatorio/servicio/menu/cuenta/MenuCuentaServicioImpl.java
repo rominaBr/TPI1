@@ -10,9 +10,11 @@ import static org.informatorio.constantes.Constantes.*;
 public class MenuCuentaServicioImpl implements MenuCuentaServicio{
 
     private MenuCuentaNueva menuCuentaNueva;
+    private MenuCuentaExistente menuCuentaExistente;
 
-    public MenuCuentaServicioImpl(MenuCuentaNueva menuCuentaNueva) {
+    public MenuCuentaServicioImpl(MenuCuentaNueva menuCuentaNueva, MenuCuentaExistente menuCuentaExistente) {
         this.menuCuentaNueva = menuCuentaNueva;
+        this.menuCuentaExistente = menuCuentaExistente;
     }
 
     @Override
@@ -32,7 +34,7 @@ public class MenuCuentaServicioImpl implements MenuCuentaServicio{
                     menuCuentaNueva.iniciarMenuCuentaNueva(cliente, banco);
                     break;
                 case 2:
-                    System.out.println("Cuenta existente");
+                    menuCuentaExistente.iniciarMenuCuentaExistente(cliente, banco);
                     break;
                 case 3:
                     System.out.println(cliente);
