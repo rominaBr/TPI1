@@ -1,5 +1,6 @@
 package org.informatorio;
 
+import org.informatorio.constantes.Constantes;
 import org.informatorio.domain.Banco;
 import org.informatorio.entrada.InputConsoleService;
 import org.informatorio.servicio.archivos.ArchivosServicioImpl;
@@ -17,6 +18,10 @@ import org.informatorio.servicio.menu.cuenta.MenuCuentaServicioImpl;
 import org.informatorio.servicio.menu.principal.MenuPrincipal;
 import org.informatorio.servicio.menu.principal.MenuPrincipalImpl;
 
+import java.util.InputMismatchException;
+
+import static org.informatorio.constantes.Constantes.SEPARADOR_TEMPLATE;
+
 
 public class App 
 {
@@ -32,8 +37,22 @@ public class App
                 new MenuAltaClienteImpl()),
                 new MenuBancoServicioImpl(new ArchivosServicioImpl(), new BancoServicioImpl()), new Banco());
 
+        boolean entradaValida = false;
 
-        menuPrincipal.iniciar();
+        do {
+            try {
+
+                menuPrincipal.iniciar();
+                entradaValida = true;
+
+            } catch (InputMismatchException e) {
+                System.out.println(SEPARADOR_TEMPLATE);
+                System.out.println("Error: Ingresa un valor válido.");
+                System.out.println(SEPARADOR_TEMPLATE);
+                InputConsoleService.getScanner().nextLine();
+
+            }
+        } while (!entradaValida);
 
         InputConsoleService.closeScanner();
     }
