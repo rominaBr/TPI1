@@ -45,7 +45,7 @@ public class MenuPrincipalImpl implements MenuPrincipal{
                     menuCliente.mostrarOpcionesCliente(banco);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
+                    System.out.println(MENSAJE_SALIENDO_TEMPLATE);
                     break;
                 default:
                     System.out.println(MENSAJE_OPCION_INCORRECTA_TEMPLATE);

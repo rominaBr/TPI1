@@ -3,6 +3,7 @@ package org.informatorio.domain;
 import org.informatorio.constantes.Constantes;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.informatorio.constantes.Constantes.SEPARADOR_TEMPLATE;
@@ -67,7 +68,19 @@ public class Cliente {
         this.direccionCliente = direccionCliente;
     }
 
+    public void setSaldoTotal(double saldoTotal) {
+        this.saldoTotal = saldoTotal;
+    }
+
     public List<Cuenta> getCuentas() {
+        cuentas.sort(new Comparator<Cuenta>() {
+            @Override
+            public int compare(Cuenta o1, Cuenta o2) {
+                Integer cuenta1 = o1.getNroCuenta();
+                Integer cuenta2 = o2.getNroCuenta();
+                return cuenta1.compareTo(cuenta2);
+            }
+        });
         return cuentas;
     }
 
@@ -99,7 +112,7 @@ public class Cliente {
             cuentasStr.append("No tiene cuentas registradas.");
         }
 
-        return SEPARADOR_TEMPLATE +
+        return
                 "\nID: " + idCliente +
                 "\nNombre: " + nombreCliente +" "+apellidoCliente+
                 "\nDirección: " + direccionCliente +

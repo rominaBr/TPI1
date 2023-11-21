@@ -4,12 +4,16 @@ import org.informatorio.enums.TipoDeCuenta;
 
 public class CuentaAhorro extends Cuenta{
 
-    private double interes = 0.10;
+    private static double interes = 0.10;
 
-    public CuentaAhorro(int nroCuenta, int nroTitular, double saldo) {
+    public CuentaAhorro(int nroCuenta, double saldo) {
 
-        super(nroCuenta, nroTitular, saldo);
+        super(nroCuenta, saldo);
 
+    }
+
+    public CuentaAhorro(int nroCuenta, Cliente cliente, double saldo) {
+        super(nroCuenta, cliente, saldo);
     }
 
     public double getInteres(){
@@ -22,13 +26,13 @@ public class CuentaAhorro extends Cuenta{
     }
 
     @Override
-    public void dopositarDinero(double deposito) {
-        setSaldo(deposito+getSaldo());
-        System.out.println(getSaldo());
-    }
-
-    @Override
     public void retirarDinero(double retiro) {
-
+        if(getSaldo() < retiro){
+            System.out.println("Fondos insuficientes.");
+        }else{
+            setSaldo(getSaldo()-retiro);
+            getCliente().setSaldoTotal(getCliente().getSaldoTotal()-retiro);
+            System.out.println("Saldo actual de cuenta Nro. "+ getNroCuenta() +" $: " +getSaldo());
+        }
     }
 }

@@ -17,9 +17,9 @@ public class CuentaServicioImpl implements CuentaServicio{
         Cuenta nuevaCuenta;
 
         if(tipoDeCuenta.equals(TipoDeCuenta.AHORRO)){
-            nuevaCuenta = new CuentaAhorro(nroCuenta, cliente.getIdCliente(), 0);
+            nuevaCuenta = new CuentaAhorro(nroCuenta, cliente, 0);
         }else{
-            nuevaCuenta = new CuentaCorriente(nroCuenta, cliente.getIdCliente(), 0);
+            nuevaCuenta = new CuentaCorriente(nroCuenta, cliente, 0);
         }
         bancoServicio.actualizarCuentaDeCliente(cliente, nuevaCuenta);
         System.out.println(SEPARADOR_TEMPLATE);

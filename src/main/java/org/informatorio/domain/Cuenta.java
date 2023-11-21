@@ -6,14 +6,19 @@ public abstract class Cuenta {
 
     private int nroCuenta;
 
-    private int nroTitular;
+    private Cliente cliente;
 
     private double saldo;
 
 
-    public Cuenta(int nroCuenta, int nroTitular, double saldo) {
+    public Cuenta(int nroCuenta, double saldo) {
         this.nroCuenta = nroCuenta;
-        this.nroTitular = nroTitular;
+        this.saldo = saldo;
+    }
+
+    public Cuenta(int nroCuenta, Cliente cliente, double saldo) {
+        this.nroCuenta = nroCuenta;
+        this.cliente = cliente;
         this.saldo = saldo;
     }
 
@@ -25,12 +30,13 @@ public abstract class Cuenta {
         this.nroCuenta = nroCuenta;
     }
 
-    public int getTitular(){
-        return nroTitular;
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setTitular(int nroTitular){
-        this.nroTitular = nroTitular;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public double getSaldo() {
@@ -43,7 +49,11 @@ public abstract class Cuenta {
 
     public abstract TipoDeCuenta tipoCuenta();
 
-    public abstract void dopositarDinero(double deposito);
+    public void dopositarDinero(double deposito) {
+        setSaldo(deposito+getSaldo());
+        cliente.setSaldoTotal(cliente.getSaldoTotal()+deposito);
+        System.out.println("Saldo actual de cuenta Nro. "+ getNroCuenta() +" $: " +getSaldo());
+    }
 
     public abstract void retirarDinero(double retiro);
 

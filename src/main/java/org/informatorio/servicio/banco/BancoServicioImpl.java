@@ -57,21 +57,10 @@ public class BancoServicioImpl implements BancoServicio{
         banco.getListaClientes().sort(new Comparator<Cliente>() {
             @Override
             public int compare(Cliente o1, Cliente o2) {
-                Integer cliente1 = (Integer)o1.getIdCliente();
-                Integer cliente2 = (Integer)o2.getIdCliente();
+                Integer cliente1 = o1.getIdCliente();
+                Integer cliente2 = o2.getIdCliente();
                 return cliente1.compareTo(cliente2);
             }
-        });
-
-        banco.getListaClientes().forEach(cliente -> {
-            cliente.getCuentas().sort(new Comparator<Cuenta>() {
-                @Override
-                public int compare(Cuenta o1, Cuenta o2) {
-                    Integer cuenta1 = (Integer)o1.getNroCuenta();
-                    Integer cuenta2 = (Integer)o2.getNroCuenta();
-                    return cuenta1.compareTo(cuenta2);
-                }
-            });
         });
 
         return banco.getListaClientes();

@@ -40,7 +40,7 @@ public class MenuCuentaServicioImpl implements MenuCuentaServicio{
                     System.out.println(cliente);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
+                    System.out.println(MENSAJE_SALIENDO_TEMPLATE);
                     break;
                 default:
                     System.out.println(MENSAJE_OPCION_INCORRECTA_TEMPLATE);

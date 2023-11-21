@@ -10,4 +10,5 @@ public class Constantes {
 
     public static final String MENSAJE_OPCION_INCORRECTA_TEMPLATE = SEPARADOR_TEMPLATE+"\nLa opción que ingresó es incorrecta.\n"+SEPARADOR_TEMPLATE;
 
+    public static final String MENSAJE_SALIENDO_TEMPLATE = SEPARADOR_TEMPLATE+"\nSaliendo...\n"+SEPARADOR_TEMPLATE;
 }

@@ -33,7 +33,7 @@ public class MenuCuentaNuevaImpl implements MenuCuentaNueva{
                 cuentaServicio.crearCuenta(cliente, banco, TipoDeCuenta.CORRIENTE);
                 break;
             case 0:
-                System.out.println("Saliendo...");
+                System.out.println(MENSAJE_SALIENDO_TEMPLATE);
                 break;
             default:
                 System.out.println(MENSAJE_OPCION_INCORRECTA_TEMPLATE);

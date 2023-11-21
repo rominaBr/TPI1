@@ -1,6 +1,5 @@
 package org.informatorio.servicio.menu.cuenta;
 
-import org.informatorio.constantes.Constantes;
 import org.informatorio.domain.Banco;
 import org.informatorio.domain.Cliente;
 import org.informatorio.domain.Cuenta;
@@ -16,6 +15,7 @@ import static org.informatorio.constantes.Constantes.SEPARADOR_TEMPLATE;
 public class MenuCuentaExistenteImpl implements MenuCuentaExistente{
 
     private ClienteServicio clienteServicio = new ClienteServicioImpl(new BancoServicioImpl());
+    private MenuOpcionesCuentaExist menuOpcionesCuentaExist = new MenuOpcionesCuentaExistImpl();
     @Override
     public void iniciarMenuCuentaExistente(Cliente cliente, Banco banco) {
         boolean seguir;
@@ -27,7 +27,9 @@ public class MenuCuentaExistenteImpl implements MenuCuentaExistente{
             Optional<Cuenta> cuentaOptional = clienteServicio.consultarCuentaPorNro(nroCuenta, cliente);
 
             if(cuentaOptional.isPresent()){
-                System.out.println("Existe.");
+                Cuenta cuenta = cuentaOptional.get();
+                menuOpcionesCuentaExist.iniciarMenuCuentaExist(cuenta, banco);
+
                 seguir = false;
             }else{
                 System.out.println(SEPARADOR_TEMPLATE);
