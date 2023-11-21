@@ -54,6 +54,7 @@ public class BancoServicioImpl implements BancoServicio{
 
     @Override
     public List<Cliente> getListaClientesOrdenada(Banco banco) {
+
         banco.getListaClientes().sort(new Comparator<Cliente>() {
             @Override
             public int compare(Cliente o1, Cliente o2) {
@@ -61,6 +62,17 @@ public class BancoServicioImpl implements BancoServicio{
                 Integer cliente2 = o2.getIdCliente();
                 return cliente1.compareTo(cliente2);
             }
+        });
+
+        banco.getListaClientes().forEach(cliente -> {
+            cliente.getCuentas().sort(new Comparator<Cuenta>() {
+                @Override
+                public int compare(Cuenta o1, Cuenta o2) {
+                    Double cuenta1 = o1.getSaldo();
+                    Double cuenta2 = o2.getSaldo();
+                    return cuenta1.compareTo(cuenta2);
+                }
+            });
         });
 
         return banco.getListaClientes();

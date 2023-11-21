@@ -73,14 +73,7 @@ public class Cliente {
     }
 
     public List<Cuenta> getCuentas() {
-        cuentas.sort(new Comparator<Cuenta>() {
-            @Override
-            public int compare(Cuenta o1, Cuenta o2) {
-                Integer cuenta1 = o1.getNroCuenta();
-                Integer cuenta2 = o2.getNroCuenta();
-                return cuenta1.compareTo(cuenta2);
-            }
-        });
+
         return cuentas;
     }
 

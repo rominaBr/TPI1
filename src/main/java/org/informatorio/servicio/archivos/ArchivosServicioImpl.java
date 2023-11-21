@@ -15,9 +15,8 @@ public class ArchivosServicioImpl implements ArchivosServicio{
 
     private final String UBICACION_ARCHIVO = "\\src\\main\\java\\org\\informatorio\\recursos\\";
 
-    private BancoServicio bancoServicio = new BancoServicioImpl();
     @Override
-    public void exportarClientesACsv(Banco banco, String nombreArchivo) {
+    public void exportarClientesACsv(Banco banco, String nombreArchivo, BancoServicio bancoServicio) {
 
         String ruta = System.getProperty("user.dir").concat(UBICACION_ARCHIVO).concat(nombreArchivo).concat(".csv");
 

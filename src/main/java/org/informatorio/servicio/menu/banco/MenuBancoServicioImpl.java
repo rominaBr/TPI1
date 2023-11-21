@@ -11,7 +11,7 @@ import static org.informatorio.constantes.Constantes.*;
 public class MenuBancoServicioImpl implements MenuBancoServicio{
 
     private ArchivosServicio archivosServicio;
-    private BancoServicio bancoServicio = new BancoServicioImpl();
+    private BancoServicio bancoServicio;
 
     public MenuBancoServicioImpl(ArchivosServicio archivosServicio, BancoServicio bancoServicio) {
         this.archivosServicio = archivosServicio;
@@ -39,7 +39,7 @@ public class MenuBancoServicioImpl implements MenuBancoServicio{
                case 2:
                    System.out.println("Ingrese el nombre del Archivo: ");
                    String nombre = InputConsoleService.getScanner().next();
-                   archivosServicio.exportarClientesACsv(banco, nombre);
+                   archivosServicio.exportarClientesACsv(banco, nombre, bancoServicio);
                    break;
                case 0:
                    System.out.println(MENSAJE_SALIENDO_TEMPLATE);
