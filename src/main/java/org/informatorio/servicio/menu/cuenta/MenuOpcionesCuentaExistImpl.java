@@ -2,6 +2,8 @@ package org.informatorio.servicio.menu.cuenta;
 
 import org.informatorio.domain.Banco;
 import org.informatorio.domain.Cuenta;
+import org.informatorio.domain.CuentaAhorro;
+import org.informatorio.domain.CuentaCorriente;
 import org.informatorio.entrada.InputConsoleService;
 import org.informatorio.enums.TipoDeCuenta;
 
@@ -36,12 +38,16 @@ public class MenuOpcionesCuentaExistImpl implements MenuOpcionesCuentaExist{
                     cuenta.retirarDinero(retiro);
                     break;
                 case 3:
+                    System.out.println("El saldo actual de la cuenta Nro. "+cuenta.getNroCuenta()+" es $: "+cuenta.getSaldo());
                     break;
                 case 4:
                     if(cuenta.tipoCuenta().equals(TipoDeCuenta.AHORRO)){
-
+                        CuentaAhorro cuentaAhorro = (CuentaAhorro) cuenta;
+                        System.out.println("Interés del "+cuentaAhorro.getInteres()+"%");
+                        System.out.println("Interés que va a generar su cuenta Nro. "+cuenta.getNroCuenta()+" : $"+cuentaAhorro.calcularInteres());
                     }else{
-
+                        CuentaCorriente cuentaCorriente = (CuentaCorriente) cuenta;
+                        System.out.println("El límite de sobregiro de su cuenta Nro. "+cuenta.getNroCuenta()+" es: $"+cuentaCorriente.verSobregiroDisponible());
                     }
                     break;
                 case 0:

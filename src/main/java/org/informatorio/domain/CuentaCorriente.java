@@ -1,6 +1,9 @@
 package org.informatorio.domain;
 
+import org.informatorio.constantes.Constantes;
 import org.informatorio.enums.TipoDeCuenta;
+
+import static org.informatorio.constantes.Constantes.SEPARADOR_TEMPLATE;
 
 public class CuentaCorriente extends Cuenta{
 
@@ -31,11 +34,22 @@ public class CuentaCorriente extends Cuenta{
     @Override
     public void retirarDinero(double retiro) {
         if(getSaldo()+limiteSobregiro<retiro){
+            System.out.println(SEPARADOR_TEMPLATE);
             System.out.println("Fondos insuficientes.");
+            System.out.println(SEPARADOR_TEMPLATE);
         }else{
             setSaldo(getSaldo()-retiro);
             getCliente().setSaldoTotal(getCliente().getSaldoTotal()-retiro);
             System.out.println("Saldo actual de cuenta Nro. "+ getNroCuenta() +" $: " +getSaldo());
+        }
+
+    }
+
+    public double verSobregiroDisponible(){
+        if(getSaldo()>=0){
+            return limiteSobregiro;
+        }else{
+            return limiteSobregiro+getSaldo();
         }
 
     }
