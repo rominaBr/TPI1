@@ -23,7 +23,6 @@ public class MenuCuentaNuevaImpl implements MenuCuentaNueva{
         System.out.println("Seleccione el tipo de cuenta que desea crear.");
         System.out.println("1. Caja de Ahorro.");
         System.out.println("2. Cuenta Corriente.");
-        System.out.println(MENSAJE_MENUANTERIOR_TEMPLATE);
         opc = InputConsoleService.getScanner().nextInt();
         switch (opc){
             case 1:
@@ -31,9 +30,6 @@ public class MenuCuentaNuevaImpl implements MenuCuentaNueva{
                 break;
             case 2:
                 cuentaServicio.crearCuenta(cliente, banco, TipoDeCuenta.CORRIENTE);
-                break;
-            case 0:
-                System.out.println(MENSAJE_SALIENDO_TEMPLATE);
                 break;
             default:
                 System.out.println(MENSAJE_OPCION_INCORRECTA_TEMPLATE);
