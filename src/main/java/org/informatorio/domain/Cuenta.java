@@ -2,6 +2,8 @@ package org.informatorio.domain;
 
 import org.informatorio.enums.TipoDeCuenta;
 
+import java.util.InputMismatchException;
+
 public abstract class Cuenta {
 
     private int nroCuenta;
@@ -50,9 +52,14 @@ public abstract class Cuenta {
     public abstract TipoDeCuenta tipoCuenta();
 
     public void dopositarDinero(double deposito) {
-        setSaldo(deposito+getSaldo());
-        cliente.setSaldoTotal(cliente.getSaldoTotal()+deposito);
-        System.out.println("Saldo actual de cuenta Nro. "+ getNroCuenta() +" $: " +getSaldo());
+        if(deposito < 0){
+            throw new InputMismatchException();
+        }else{
+            setSaldo(deposito+getSaldo());
+            cliente.setSaldoTotal(cliente.getSaldoTotal()+deposito);
+            System.out.println("Saldo actual de cuenta Nro. "+ getNroCuenta() +" $: " +getSaldo());
+        }
+
     }
 
     public abstract void retirarDinero(double retiro);
